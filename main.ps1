@@ -19,4 +19,7 @@ Invoke-WebRequest -Uri "https://www.notion.so/desktop/windows/download" -OutFile
 Start-Process "$env:USERPROFILE\Downloads\NotionSetup.exe"
 
 winget install --id  Microsoft.VisualStudioCode -e --accept-package-agreements --accept-source-agreements
-# winget install --id Python.Python.3 --source winget --silent --accept-package-agreements --accept-source-agreements
+
+# Install Python 3.13.7
+Invoke-WebRequest -Uri "https://www.python.org/ftp/python/3.13.7/python-3.13.7-amd64.exe" -OutFile "$env:TEMP\python-latest.exe"; Start-Process "$env:TEMP\python-latest.exe" -ArgumentList "/quiet InstallAllUsers=1 PrependPath=1 Include_test=0" -Wait
+
