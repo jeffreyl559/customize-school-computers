@@ -15,9 +15,11 @@ Write-Host "Applying changes by restarting Explorer..." -ForegroundColor Cyan
 Stop-Process -Name explorer -Force
 Start-Process explorer
 
+# Install Notion
 Invoke-WebRequest -Uri "https://www.notion.so/desktop/windows/download" -OutFile "$env:USERPROFILE\Downloads\NotionSetup.exe"
 Start-Process "$env:USERPROFILE\Downloads\NotionSetup.exe"
 
+# Install VSCode
 winget install --id  Microsoft.VisualStudioCode -e --accept-package-agreements --accept-source-agreements
 
 # Install Python 3.13.7
